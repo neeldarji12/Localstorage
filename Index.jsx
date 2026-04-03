@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-const UserManager = () => {
+export default function UserManager() {
   const [state, setState] = useState({ name: "", email: "" });
   const [data, setData] = useState([]);
   const [editIndex, setEditIndex] = useState(null);
@@ -20,6 +20,7 @@ const UserManager = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
     if (!state.name || !state.email) return;
 
     if (editIndex !== null) {
@@ -46,7 +47,6 @@ const UserManager = () => {
       <h2>User Manager</h2>
 
       <div className="layout">
-        {/* Form */}
         <div className="card">
           <h3>{editIndex !== null ? "Edit User" : "Add User"}</h3>
 
@@ -75,7 +75,6 @@ const UserManager = () => {
           </form>
         </div>
 
-        {/* Table */}
         <div className="card">
           <h3>User List</h3>
 
@@ -100,6 +99,7 @@ const UserManager = () => {
                     >
                       Edit
                     </button>
+
                     <button
                       className="btn-danger"
                       onClick={() => handleDelete(index)}
@@ -123,6 +123,4 @@ const UserManager = () => {
       </div>
     </div>
   );
-};
-
-export default UserManager;
+      }
